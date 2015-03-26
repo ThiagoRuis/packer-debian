@@ -1,6 +1,7 @@
 {
     "builders": [
         {
+            "name": "debian-7",
             "boot_command": [
                 "<esc><wait>",
                 "install <wait>",
@@ -22,9 +23,9 @@
             "guest_os_type": "Debian_64",
             "headless": true,
             "http_directory": "http",
-            "iso_checksum": "8a3c2ad7fd7a9c4c7e9bcb5cae38c135",
+            "iso_checksum": "a91fba5001cf0fbccb44a7ae38c63b6e",
             "iso_checksum_type": "md5",
-            "iso_url": "http://cdimage.debian.org/debian-cd/7.6.0/amd64/iso-cd/debian-7.6.0-amd64-netinst.iso",
+            "iso_url": "http://cdimage.debian.org/debian-cd/7.8.0/amd64/iso-cd/debian-7.8.0-amd64-netinst.iso",
             "shutdown_command": "echo 'halt -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
             "ssh_password": "vagrant",
             "ssh_port": 22,
@@ -36,13 +37,13 @@
                     "modifyvm",
                     "{{.Name}}",
                     "--memory",
-                    "512"
+                    "4096"
                 ],
                 [
                     "modifyvm",
                     "{{.Name}}",
                     "--cpus",
-                    "1"
+                    "2"
                 ]
             ]
         }
@@ -54,7 +55,7 @@
         {
             "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'",
             "override": {
-                "virtualbox-iso": {
+                "debian-7": {
                     "scripts": [
                         "scripts/base.sh",
                         "scripts/system.sh",
