@@ -3,6 +3,7 @@ apt-get install -y vim
 
 # Customize Bash settings.
 cat <<EOF > /home/vagrant/.bashrc
+TERM=cygwin; export TERM
 # Colorize the prompt.
 yellow=\$(tput setaf 3)
 green=\$(tput setaf 2)
